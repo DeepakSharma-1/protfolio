@@ -1,0 +1,15 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0F0F0F;
+  cursor: default;
+}
+
+/* Custom Cursor Overrides */
+.interactive-hover {
+  cursor: none !important;
+}
