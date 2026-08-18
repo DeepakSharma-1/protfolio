@@ -1,224 +1,197 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Editorial Portfolio</title>
+  <title>Deepak Sharma — Portfolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="website.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['Cinzel', 'serif'],
+            sans: ['Inter', 'sans-serif'],
+            mono: ['Space Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
 </head>
-<body class="bg-[#0F0F0F] text-[#F3F3F3] font-serif overflow-x-hidden selection:bg-white selection:text-black">
+<body class="bg-[#0e0e0e] text-[#e2e2e2] antialiased selection:bg-white selection:text-black">
 
-  <!-- Custom Cursor -->
-  <div id="cursor" class="pointer-events-none fixed top-0 left-0 z-50 rounded-full border border-white/40 flex items-center justify-center transition-[width,height,background-color] duration-300 backdrop-blur-sm -translate-x-1/2 -translate-y-1/2 w-5 h-5">
-    <span id="cursor-text" class="hidden text-black text-xs tracking-widest uppercase font-sans font-medium">View</span>
-  </div>
+  <!-- Fixed Header Navigation -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-[#0e0e0e]/80 backdrop-blur-md border-b border-white/10 px-6 lg:px-16 py-4 flex justify-between items-center">
+    <a href="#" class="font-mono text-xs tracking-widest uppercase hover:opacity-70 transition-opacity">STUDIO / 2026</a>
+    <nav class="hidden md:flex space-x-8 font-mono text-xs tracking-widest uppercase text-white/70">
+      <a href="#about" class="hover:text-white transition-colors">About</a>
+      <a href="#education" class="hover:text-white transition-colors">Education</a>
+      <a href="#certificates" class="hover:text-white transition-colors">Certificates</a>
+      <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+    </nav>
+  </header>
 
-  <!-- Navigation -->
-  <nav class="flex justify-between items-center px-8 md:px-12 py-8 font-sans text-xs tracking-[0.2em] uppercase border-b border-white/10 sticky top-0 bg-[#0F0F0F]/80 backdrop-blur-md z-40">
-    <a href="#" class="hover:text-white/60 transition-colors">Studio / 2026</a>
-    <div class="space-x-6 text-[10px] sm:text-xs">
-      <a href="#about" class="hover:text-white/60 transition-colors">About</a>
-      <a href="#education" class="hover:text-white/60 transition-colors">Education</a>
-      <a href="#certificates" class="hover:text-white/60 transition-colors">Certificates</a>
-      <a href="#contact" class="hover:text-white/60 transition-colors">Contact</a>
-    </div>
-  </nav>
+  <main class="w-full max-w-6xl mx-auto px-6 sm:px-10 lg:px-12 pt-32 pb-24 space-y-32">
 
-  <!-- Hero Section -->
-  <main class="px-8 md:px-12 pt-20 pb-20">
-    <div class="max-w-6xl">
-      <p class="font-sans text-xs tracking-[0.3em] uppercase mb-6 text-white/50">
-        Developer & Tech Enthusiast
-      </p>
-      <h1 class="text-5xl md:text-8xl lg:text-[7rem] leading-[0.9] tracking-tight font-normal italic">
-        Deepak Sharma <br />
-        <span class="font-sans not-italic font-light tracking-tighter uppercase text-4xl md:text-7xl lg:text-[5.5rem] block mt-4">
-          Computer Science Graduate
-        </span>
+    <!-- HERO SECTION (Centered, Responsive Text Sizes) -->
+    <section class="min-h-[70vh] flex flex-col justify-center items-center text-center space-y-6">
+      <p class="font-mono text-xs md:text-sm text-white/50 tracking-[0.3em] uppercase">DEVELOPER & TECH ENTENTHUSIAST</p>
+      
+      <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-serif font-light tracking-tight text-white leading-tight">
+        Deepak Sharma
       </h1>
-    </div>
-  </main>
-
-  <!-- About Me Section -->
-  <section id="about" class="px-8 md:px-12 py-20 border-t border-white/10 max-w-6xl">
-    <p class="font-sans text-xs tracking-[0.3em] uppercase mb-6 text-white/40 font-mono">01 / ABOUT ME</p>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 font-sans font-light text-lg text-white/80 leading-relaxed">
-      <p>
-I’m Deepak Sharma, a Computer Science graduate passionate about Artificial Intelligence, Generative AI, Data Science, Cybersecurity, and software development. 
-I enjoy turning ideas into practical digital solutions, from machine learning and data analysis projects to full-stack web applications and security-focused tools. 
-With hands-on experience in Python, Java, JavaScript, React, SQL, Docker, Linux, and Git, I’m constantly exploring new technologies and improving my skills. 
-I believe in building technology that is not only functional, but also intelligent, secure, fast, and thoughtfully designed. 
-My goal is to create meaningful products that solve real-world problems and bring ideas to life through technology.
-
-      </p>
-    </div>
-  </section>
-
-  <!-- Education Section -->
-  <section id="education" class="px-8 md:px-12 py-20 border-t border-white/10">
-    <div class="max-w-6xl">
-      <p class="font-sans text-xs tracking-[0.3em] uppercase mb-12 text-white/40 font-mono">02 / EDUCATION</p>
-      <div class="space-y-10">
-        
-        <div class="flex flex-col md:flex-row justify-between md:items-center border-b border-white/10 pb-8">
-          <div>
-            <h3 class="text-2xl font-sans font-light tracking-tight">B.S. in Computer Science</h3>
-            <p class="font-serif italic text-white/50 text-sm mt-1">Malla Reddy University</p>
-          </div>
-          <span class="font-sans text-xs tracking-widest text-white/40 font-mono mt-2 md:mt-0">2023 — 2026</span>
-        </div>
-
-        <div class="flex flex-col md:flex-row justify-between md:items-center border-b border-white/10 pb-8">
-          <div>
-            <h3>Artificial Intelligence & Data Science</h3>
-            <p>Machine Learning · Generative AI · Data Analysis</p><br />
-            <h3>Cybersecurity & Threat Detection</h3>
-            <p>Network Security · Phishing Detection · Security Tools</p><br />
-            <h3>Full-Stack Development</h3>
-            <p>React · Python · JavaScript · SQL · APIs</p>
-          </div>
-          <span class="font-sans text-xs tracking-widest text-white/40 font-mono mt-2 md:mt-0">2025</span>
-        </div>
-
+      
+      <h2 class="text-xl sm:text-3xl md:text-4xl font-sans font-extralight tracking-widest text-white/70 uppercase">
+        COMPUTER SCIENCE GRADUATE
+      </h2>
+      
+      <div class="pt-8 flex flex-wrap justify-center gap-4 font-mono text-xs">
+        <a href="#contact" class="px-6 py-3 border border-white/30 hover:border-white hover:bg-white hover:text-black transition-all duration-300">GET IN TOUCH</a>
+        <a href="#certificates" class="px-6 py-3 border border-white/10 text-white/60 hover:text-white hover:border-white/40 transition-all duration-300">VIEW CERTIFICATES</a>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Certificates Section (Click to Preview Modal) -->
-  <section id="certificates" class="px-8 md:px-12 py-20 border-t border-white/10">
-    <div class="max-w-6xl">
-      <p class="font-sans text-xs tracking-[0.3em] uppercase mb-12 text-white/40 font-mono">03 / CERTIFICATES (CLICK TO INSPECT)</p>
+    <!-- 01 / ABOUT ME SECTION (Centered Content Block) -->
+    <section id="about" class="border-t border-white/10 pt-16">
+      <div class="max-w-3xl mx-auto text-center space-y-8">
+        <p class="font-mono text-xs tracking-[0.3em] uppercase text-white/40">01 / ABOUT ME</p>
+        <p class="font-sans text-base sm:text-lg md:text-xl text-white/80 leading-relaxed font-light">
+          I'm Deepak Sharma, a Computer Science graduate passionate about Artificial Intelligence, Generative AI, Data Science, Cybersecurity, and software development. I enjoy turning ideas into practical digital solutions—from machine learning models and data analysis pipelines to full-stack web applications and security tools.
+        </p>
+        <p class="font-mono text-xs text-white/40">
+          Python · Java · JavaScript · React · SQL · Docker · Linux · Git
+        </p>
+      </div>
+    </section>
+
+    <!-- 02 / EDUCATION SECTION (Responsive Layout) -->
+    <section id="education" class="border-t border-white/10 pt-16">
+      <p class="font-mono text-xs tracking-[0.3em] uppercase mb-12 text-white/40 text-center">02 / EDUCATION & FOCUS</p>
       
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        
-       <!-- Certificates Section (Click to Preview Modal) -->
-  <section id="certificates" class="px-8 md:px-12 py-20 border-t border-white/10">
-    <div class="max-w-6xl">
-      <p class="font-sans text-xs tracking-[0.3em] uppercase mb-12 text-white/40 font-mono">03 / CERTIFICATIONS (CLICK TO INSPECT)</p>
+      <div class="max-w-4xl mx-auto space-y-12">
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-white/10 pb-6 gap-2">
+          <div>
+            <h3 class="text-2xl sm:text-3xl font-sans font-light text-white">B.S. in Computer Science</h3>
+            <p class="font-serif italic text-sm text-white/50">Malla Reddy University</p>
+          </div>
+          <span class="font-mono text-xs text-white/40 bg-white/5 px-3 py-1 border border-white/10">2023 — 2026</span>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-left">
+          <div class="p-4 bg-white/[0.02] border border-white/5 rounded-sm">
+            <h4 class="font-sans text-sm font-medium text-white mb-2">AI & Data Science</h4>
+            <p class="font-mono text-xs text-white/40">Machine Learning, Generative AI, Data Analysis</p>
+          </div>
+          <div class="p-4 bg-white/[0.02] border border-white/5 rounded-sm">
+            <h4 class="font-sans text-sm font-medium text-white mb-2">Cybersecurity</h4>
+            <p class="font-mono text-xs text-white/40">Network Security, Threat Detection, Security Tools</p>
+          </div>
+          <div class="p-4 bg-white/[0.02] border border-white/5 rounded-sm">
+            <h4 class="font-sans text-sm font-medium text-white mb-2">Full-Stack Dev</h4>
+            <p class="font-mono text-xs text-white/40">React, Python, JS, SQL, APIs</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 / CERTIFICATES SECTION (Responsive 1-col on Mobile, 2-col on Tablet, 3-col on PC) -->
+    <section id="certificates" class="border-t border-white/10 pt-16">
+      <p class="font-mono text-xs tracking-[0.3em] uppercase mb-12 text-white/40 text-center">03 / CERTIFICATIONS (CLICK TO INSPECT)</p>
       
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         
-        <!-- 1. CISSP -->
-        <div class="cert-card interactive-hover group bg-white/5 border border-white/10 p-6 cursor-pointer transition-colors duration-500 hover:border-white/40" 
-             data-title="CISSP Certification" 
-             data-issuer="(ISC)²" 
-             data-img="certificates/cissp.png">
-          <p class="font-sans text-[10px] tracking-widest text-white/40 font-mono uppercase mb-4">Verification № 01</p>
-          <h4 class="text-xl font-sans font-light mb-2 group-hover:translate-x-2 transition-transform duration-300">CISSP</h4>
+        <!-- CISSP -->
+        <div class="cert-card group bg-white/[0.02] border border-white/10 p-6 cursor-pointer hover:border-white/40 transition-all duration-300" 
+             data-title="CISSP Certification" data-issuer="(ISC)²" data-img="certificates/cissp.png">
+          <p class="font-mono text-[10px] tracking-widest text-white/40 uppercase mb-4">№ 01</p>
+          <h4 class="text-xl font-sans font-light mb-1 group-hover:translate-x-1 transition-transform">CISSP</h4>
           <p class="font-serif italic text-xs text-white/50">Information Systems Security</p>
         </div>
 
-        <!-- 2. Deloitte Cyber -->
-        <div class="cert-card interactive-hover group bg-white/5 border border-white/10 p-6 cursor-pointer transition-colors duration-500 hover:border-white/40" 
-             data-title="Cybersecurity Job Simulation" 
-             data-issuer="Deloitte" 
-             data-img="certificates/deloitte-cyber.png">
-          <p class="font-sans text-[10px] tracking-widest text-white/40 font-mono uppercase mb-4">Verification № 02</p>
-          <h4 class="text-xl font-sans font-light mb-2 group-hover:translate-x-2 transition-transform duration-300">Deloitte Cyber</h4>
+        <!-- Deloitte -->
+        <div class="cert-card group bg-white/[0.02] border border-white/10 p-6 cursor-pointer hover:border-white/40 transition-all duration-300" 
+             data-title="Cybersecurity Job Simulation" data-issuer="Deloitte" data-img="certificates/deloitte-cyber.png">
+          <p class="font-mono text-[10px] tracking-widest text-white/40 uppercase mb-4">№ 02</p>
+          <h4 class="text-xl font-sans font-light mb-1 group-hover:translate-x-1 transition-transform">Deloitte Cyber</h4>
           <p class="font-serif italic text-xs text-white/50">Cybersecurity Architecture</p>
         </div>
 
-        <!-- 3. Tata Cybersecurity -->
-        <div class="cert-card interactive-hover group bg-white/5 border border-white/10 p-6 cursor-pointer transition-colors duration-500 hover:border-white/40" 
-             data-title="Cybersecurity Analyst Simulation" 
-             data-issuer="Tata Insights & AGI" 
-             data-img="certificates/tata-cybersecurity.png">
-          <p class="font-sans text-[10px] tracking-widest text-white/40 font-mono uppercase mb-4">Verification № 03</p>
-          <h4 class="text-xl font-sans font-light mb-2 group-hover:translate-x-2 transition-transform duration-300">Tata Cybersecurity</h4>
+        <!-- Tata -->
+        <div class="cert-card group bg-white/[0.02] border border-white/10 p-6 cursor-pointer hover:border-white/40 transition-all duration-300" 
+             data-title="Cybersecurity Analyst Simulation" data-issuer="Tata Insights & AGI" data-img="certificates/tata-cybersecurity.png">
+          <p class="font-mono text-[10px] tracking-widest text-white/40 uppercase mb-4">№ 03</p>
+          <h4 class="text-xl font-sans font-light mb-1 group-hover:translate-x-1 transition-transform">Tata Cybersecurity</h4>
           <p class="font-serif italic text-xs text-white/50">Cybersecurity Analyst</p>
         </div>
 
-        <!-- 4. Mastercard Cybersecurity -->
-        <div class="cert-card interactive-hover group bg-white/5 border border-white/10 p-6 cursor-pointer transition-colors duration-500 hover:border-white/40" 
-             data-title="Cybersecurity Job Simulation" 
-             data-issuer="Mastercard" 
-             data-img="certificates/mastercard-cybersecurity.png">
-          <p class="font-sans text-[10px] tracking-widest text-white/40 font-mono uppercase mb-4">Verification № 04</p>
-          <h4 class="text-xl font-sans font-light mb-2 group-hover:translate-x-2 transition-transform duration-300">Mastercard Cyber</h4>
+        <!-- Mastercard -->
+        <div class="cert-card group bg-white/[0.02] border border-white/10 p-6 cursor-pointer hover:border-white/40 transition-all duration-300" 
+             data-title="Cybersecurity Job Simulation" data-issuer="Mastercard" data-img="certificates/mastercard-cybersecurity.png">
+          <p class="font-mono text-[10px] tracking-widest text-white/40 uppercase mb-4">№ 04</p>
+          <h4 class="text-xl font-sans font-light mb-1 group-hover:translate-x-1 transition-transform">Mastercard Cyber</h4>
           <p class="font-serif italic text-xs text-white/50">Security Analysis</p>
         </div>
 
-        <!-- 5. SIFS Cyber Training -->
-        <div class="cert-card interactive-hover group bg-white/5 border border-white/10 p-6 cursor-pointer transition-colors duration-500 hover:border-white/40" 
-             data-title="Cyber Training Certification" 
-             data-issuer="SIFS India" 
-             data-img="certificates/sifs-cyber-training.png">
-          <p class="font-sans text-[10px] tracking-widest text-white/40 font-mono uppercase mb-4">Verification № 05</p>
-          <h4 class="text-xl font-sans font-light mb-2 group-hover:translate-x-2 transition-transform duration-300">SIFS Cyber Training</h4>
+        <!-- SIFS -->
+        <div class="cert-card group bg-white/[0.02] border border-white/10 p-6 cursor-pointer hover:border-white/40 transition-all duration-300" 
+             data-title="Cyber Training Certification" data-issuer="SIFS India" data-img="certificates/sifs-cyber-training.png">
+          <p class="font-mono text-[10px] tracking-widest text-white/40 uppercase mb-4">№ 05</p>
+          <h4 class="text-xl font-sans font-light mb-1 group-hover:translate-x-1 transition-transform">SIFS Cyber Training</h4>
           <p class="font-serif italic text-xs text-white/50">Forensics & Security</p>
         </div>
 
-        <!-- 6. Selenium -->
-        <div class="cert-card interactive-hover group bg-white/5 border border-white/10 p-6 cursor-pointer transition-colors duration-500 hover:border-white/40" 
-             data-title="Automated Testing with Selenium" 
-             data-issuer="Testing Academy" 
-             data-img="certificates/selenium.png">
-          <p class="font-sans text-[10px] tracking-widest text-white/40 font-mono uppercase mb-4">Verification № 06</p>
-          <h4 class="text-xl font-sans font-light mb-2 group-hover:translate-x-2 transition-transform duration-300">Selenium Automation</h4>
+        <!-- Selenium -->
+        <div class="cert-card group bg-white/[0.02] border border-white/10 p-6 cursor-pointer hover:border-white/40 transition-all duration-300" 
+             data-title="Automated Testing with Selenium" data-issuer="Testing Academy" data-img="certificates/selenium.png">
+          <p class="font-mono text-[10px] tracking-widest text-white/40 uppercase mb-4">№ 06</p>
+          <h4 class="text-xl font-sans font-light mb-1 group-hover:translate-x-1 transition-transform">Selenium Automation</h4>
           <p class="font-serif italic text-xs text-white/50">Test Automation</p>
         </div>
 
-        <!-- 7. Cambridge B2 -->
-        <div class="cert-card interactive-hover group bg-white/5 border border-white/10 p-6 cursor-pointer transition-colors duration-500 hover:border-white/40" 
-             data-title="B2 First English Certification" 
-             data-issuer="Cambridge Assessment English" 
-             data-img="certificates/cambridge-b2.png">
-          <p class="font-sans text-[10px] tracking-widest text-white/40 font-mono uppercase mb-4">Verification № 07</p>
-          <h4 class="text-xl font-sans font-light mb-2 group-hover:translate-x-2 transition-transform duration-300">Cambridge B2</h4>
+        <!-- Cambridge B2 -->
+        <div class="cert-card group bg-white/[0.02] border border-white/10 p-6 cursor-pointer hover:border-white/40 transition-all duration-300 sm:col-span-2 lg:col-span-1" 
+             data-title="B2 First English Certification" data-issuer="Cambridge Assessment English" data-img="certificates/cambridge-b2.png">
+          <p class="font-mono text-[10px] tracking-widest text-white/40 uppercase mb-4">№ 07</p>
+          <h4 class="text-xl font-sans font-light mb-1 group-hover:translate-x-1 transition-transform">Cambridge B2</h4>
           <p class="font-serif italic text-xs text-white/50">English Proficiency</p>
         </div>
 
       </div>
-    </div>
-  </section>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="px-8 md:px-12 py-20 border-t border-white/10 max-w-6xl">
-    <p class="font-sans text-xs tracking-[0.3em] uppercase mb-12 text-white/40 font-mono">04 / INQUIRIES & CONTACT</p>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-      <div>
-        <h2 class="text-4xl md:text-5xl font-sans font-light tracking-tight mb-6">Let's build something exceptional.</h2>
-        <p class="font-serif italic text-white/50 text-base">Available for freelance projects and full-time roles.</p>
-        <p class="font-sans text-sm text-white/80 mt-8 font-mono">deepaksharma01625@gmail.com</p>
+    <!-- 04 / CONTACT SECTION -->
+    <section id="contact" class="border-t border-white/10 pt-16 text-center max-w-xl mx-auto space-y-6">
+      <p class="font-mono text-xs tracking-[0.3em] uppercase text-white/40">04 / CONTACT</p>
+      <h3 class="text-3xl font-serif font-light text-white">Let's Connect</h3>
+      <p class="font-sans text-sm text-white/60">Open for opportunities in Software Engineering, AI, and Cybersecurity.</p>
+      <div class="pt-4">
+        <a href="mailto:your.email@example.com" class="inline-block px-8 py-4 bg-white text-black font-mono text-xs tracking-widest uppercase hover:bg-white/80 transition-colors">Send Email</a>
       </div>
-      
-      <form class="space-y-6 font-sans">
-        <div>
-          <label class="block text-xs uppercase tracking-widest text-white/50 mb-2">Name</label>
-          <input type="text" class="w-full bg-white/5 border border-white/10 px-4 py-3 text-sm focus:outline-none focus:border-white transition-colors" placeholder="Your Name" />
-        </div>
-        <div>
-          <label class="block text-xs uppercase tracking-widest text-white/50 mb-2">Email</label>
-          <input type="email" class="w-full bg-white/5 border border-white/10 px-4 py-3 text-sm focus:outline-none focus:border-white transition-colors" placeholder="your@email.com" />
-        </div>
-        <div>
-          <label class="block text-xs uppercase tracking-widest text-white/50 mb-2">Message</label>
-          <textarea rows="4" class="w-full bg-white/5 border border-white/10 px-4 py-3 text-sm focus:outline-none focus:border-white transition-colors" placeholder="Tell me about your project..."></textarea>
-        </div>
-        <button type="button" class="px-8 py-4 bg-white text-black text-xs uppercase tracking-[0.2em] font-medium hover:bg-white/80 transition-colors">Send Message</button>
-      </form>
-    </div>
-  </section>
+    </section>
 
-  <!-- Certificate Fullscreen Modal -->
-  <div id="cert-modal" class="fixed inset-0 bg-black/90 backdrop-blur-md z-50 hidden flex-col justify-center items-center p-8">
-    <button id="close-modal" class="absolute top-8 right-8 text-white font-sans text-xs uppercase tracking-widest hover:text-white/60">Close [ESC]</button>
-    <div class="max-w-4xl w-full text-center">
-      <img id="modal-img" src="" alt="Certificate" class="max-h-[65vh] mx-auto border border-white/20 shadow-2xl object-contain mb-6" />
-      <h3 id="modal-title" class="text-3xl font-sans font-light tracking-tight"></h3>
-      <p id="modal-issuer" class="font-serif italic text-white/50 text-sm mt-2"></p>
+  </main>
+
+  <footer class="border-t border-white/10 text-center py-8 font-mono text-xs text-white/30">
+    © 2026 DEEPAK SHARMA. ALL RIGHTS RESERVED.
+  </footer>
+
+  <!-- Modal Component for Viewing Certificates -->
+  <div id="cert-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden flex-col justify-center items-center p-6">
+    <button id="close-modal" class="absolute top-6 right-8 text-white text-2xl font-mono hover:opacity-50">&times; CLOSE</button>
+    <div class="max-w-3xl w-full text-center space-y-4">
+      <h3 id="modal-title" class="text-2xl font-serif text-white"></h3>
+      <p id="modal-issuer" class="font-mono text-xs text-white/50"></p>
+      <div class="border border-white/20 p-2 bg-black">
+        <img id="modal-img" src="" alt="Certificate Preview" class="max-h-[60vh] mx-auto object-contain" />
+      </div>
     </div>
   </div>
-
-  <!-- Footer -->
-  <footer class="px-8 md:px-12 py-8 flex justify-between items-center font-sans text-[10px] tracking-widest uppercase text-white/30 border-t border-white/10">
-    <span>37.7749° N, 122.4194° W</span>
-    <span>© 2026 Portfolio Studio</span>
-  </footer>
 
   <script src="website.js"></script>
 </body>
