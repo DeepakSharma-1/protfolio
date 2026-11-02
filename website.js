@@ -1,72 +1,136 @@
-const cursor = document.getElementById('cursor');
-const cursorText = document.getElementById('cursor-text');
-const interactiveCards = document.querySelectorAll('.interactive-hover');
 
-// Modal Elements
-const modal = document.getElementById('cert-modal');
-const modalImg = document.getElementById('modal-img');
-const modalTitle = document.getElementById('modal-title');
-const modalIssuer = document.getElementById('modal-issuer');
-const closeModalBtn = document.getElementById('close-modal');
+document.addEventListener("DOMContentLoaded", () => {
+  // Certificate modal elements
+  const modal = document.getElementById("cert-modal");
+  const modalTitle = document.getElementById("modal-title");
+  const modalIssuer = document.getElementById("modal-issuer");
+  const modalPdf = document.getElementById("modal-pdf");
+  const closeModalBtn = document.getElementById("close-modal");
 
-let mouseX = -100;
-let mouseY = -100;
-let cursorX = -100;
-let cursorY = -100;
+  // PDF action buttons
+  const downloadBtn = document.getElementById("download-certificate");
+  const openPdfBtn = document.getElementById("open-pdf");
 
-window.addEventListener('mousemove', (e) => {
-  mouseX = e.clientX;
-  mouseY = e.clientY;
-});
+  // Certificate cards
+  const certificateCards = document.querySelectorAll(".cert-card");
 
-function animate() {
-  cursorX += (mouseX - cursorX) * 0.15;
-  cursorY += (mouseY - cursorY) * 0.15;
+  // Check that all required elements exist
+  if (
+    !modal ||
+    !modalTitle ||
+    !modalIssuer ||
+    !modalPdf ||
+    !closeModalBtn ||
+    !downloadBtn ||
+    !openPdfBtn
+  ) {
+    console.error("Certificate modal elements are missing from index.html.");
+    return;
+  }
 
-  cursor.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0) translate(-50%, -50%)`;
+  let previouslyFocusedElement = null;
 
-  requestAnimationFrame(animate);
-}
-animate();
+  // Convert a root-level PDF filename into a usable URL.
+  // encodeURIComponent handles spaces and special characters.
+  function getPdfUrl(fileName) {
+    return encodeURIComponent(fileName);
+  }
 
-// Cursor Hover Interactions
-interactiveCards.forEach((item) => {
-  item.addEventListener('mouseenter', () => {
-    cursor.style.width = '90px';
-    cursor.style.height = '90px';
-    cursor.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
-    cursorText.classList.remove('hidden');
+  // Open certificate preview
+  function openCertificate(card) {
+    const title = card.getAttribute("data-title");
+    const issuer = card.getAttribute("data-issuer");
+    const pdfFile = card.getAttribute("data-pdf");
+
+    if (!pdfFile) {
+      console.error("PDF filename is missing for:", title);
+      return;
+    }
+
+    const pdfUrl = getPdfUrl(pdfFile);
+
+    // Update modal information
+    modalTitle.textContent = title || "Certificate";
+    modalIssuer.textContent = issuer || "";
+
+    // Load PDF inside the preview frame
+    modalPdf.src = `${pdfUrl}#toolbar=1&navpanes=0&view=FitH`;
+
+    // Configure the open PDF button
+    openPdfBtn.href = pdfUrl;
+    openPdfBtn.target = "_blank";
+    openPdfBtn.rel = "noopener noreferrer";
+
+    // Configure the download button
+    downloadBtn.href = pdfUrl;
+    downloadBtn.setAttribute("download", pdfFile);
+
+    // Remember focus before opening
+    previouslyFocusedElement = document.activeElement;
+
+    // Display modal
+    modal.classList.remove("hidden");
+    modal.classList.add("flex");
+
+    // Prevent background scrolling
+    document.body.style.overflow = "hidden";
+
+    // Focus close button
+    closeModalBtn.focus();
+  }
+
+  // Close certificate preview
+  function closeCertificate() {
+    if (modal.classList.contains("hidden")) {
+      return;
+    }
+
+    modal.classList.add("hidden");
+    modal.classList.remove("flex");
+
+    // Stop the PDF preview
+    modalPdf.src = "about:blank";
+
+    // Restore background scrolling
+    document.body.style.overflow = "";
+
+    // Restore previous focus
+    if (previouslyFocusedElement) {
+      previouslyFocusedElement.focus();
+      previouslyFocusedElement = null;
+    }
+  }
+
+  // Attach click and keyboard events to all certificate cards
+  certificateCards.forEach((card) => {
+    card.addEventListener("click", () => {
+      openCertificate(card);
+    });
+
+    // Support keyboard navigation
+    card.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        openCertificate(card);
+      }
+    });
   });
 
-  item.addEventListener('mouseleave', () => {
-    cursor.style.width = '20px';
-    cursor.style.height = '20px';
-    cursor.style.backgroundColor = 'transparent';
-    cursorText.classList.add('hidden');
+  // Close using CLOSE button
+  closeModalBtn.addEventListener("click", closeCertificate);
+
+  // Close when clicking outside the preview
+  modal.addEventListener("click", (event) => {
+    if (event.target === modal) {
+      closeCertificate();
+    }
   });
 
-  // Open Modal on Certificate Click
-  item.addEventListener('click', () => {
-    const title = item.getAttribute('data-title');
-    const issuer = item.getAttribute('data-issuer');
-    const imgSrc = item.getAttribute('data-img');
-
-    modalTitle.textContent = title;
-    modalIssuer.textContent = issuer;
-    modalImg.src = imgSrc;
-
-    modal.classList.remove('hidden');
-    modal.classList.add('flex');
+  // Close using Escape key
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeCertificate();
+    }
   });
-});
 
-// Close Modal
-const closeModal = () => {
-  modal.classList.add('hidden');
-  modal.classList.remove('flex');
-};
-
-closeModalBtn.addEventListener('click', closeModal);
-window.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeModal();
 });
